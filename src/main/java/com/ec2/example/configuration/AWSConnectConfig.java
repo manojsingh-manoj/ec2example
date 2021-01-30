@@ -21,7 +21,7 @@ public class AWSConnectConfig {
 	public AmazonS3 gets3Client() {
 		AmazonS3 s3Client = null;
 		try {
-			AWSCredentialsProvider provider = new AWSCredentialsProviderChain(new InstanceProfileCredentialsProvider(true),new ProfileCredentialsProvider());
+			AWSCredentialsProvider provider = new AWSCredentialsProviderChain(new InstanceProfileCredentialsProvider(true),new ProfileCredentialsProvider("default"));
 			s3Client  = AmazonS3ClientBuilder.standard().withRegion(Regions.US_EAST_2).withCredentials(provider).build();
 			
 		}catch(Exception e) {
